@@ -1,0 +1,18 @@
+.icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: url('https://cdn.plug.dj/_/static/images/icons.38f7ee77fd7ad2bc018b1a25fd4a1f0aaba5a4cd.png')
+}
+
+.icon-grab {
+    background-position: -140px -280px
+}
+
+.icon-meh {
+    background-position: -175px -280px
+}
+
+.icon-woot {
+    background-position: -210px -280px
+}
