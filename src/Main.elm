@@ -134,8 +134,8 @@ init =
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ ul [] (List.map showPlay model.plays)
+    div [ Attrs.class "stats-list" ]
+        [ ol [] (List.map showPlay model.plays)
         ]
 
 
@@ -151,13 +151,18 @@ showPlay play =
 playStat : Play -> Html Msg
 playStat play =
     div []
-        [ div [ Attrs.class "icon icon-woot" ] []
-        , text (playMetric play.score.positive play.score.listeners)
-        , div [ Attrs.class "icon icon-meh" ] []
-        , text (playMetric play.score.negative play.score.listeners)
-        , div [ Attrs.class "icon icon-grab" ] []
-        , text (playMetric play.score.grabs play.score.listeners)
+        [ plugIcon "woot"
+        , div [] [ text (playMetric play.score.positive play.score.listeners) ]
+        , plugIcon "meh"
+        , div [] [ text (playMetric play.score.negative play.score.listeners) ]
+        , plugIcon "grab"
+        , div [] [ text (playMetric play.score.grabs play.score.listeners) ]
         ]
+
+
+plugIcon : String -> Html Msg
+plugIcon icon =
+    div [ Attrs.class ("icon icon-" ++ icon) ] []
 
 
 playMetric : Int -> Int -> String
