@@ -2,10 +2,25 @@ html, body{ padding: 0; margin: 0; }
 body{ font-family: "Open Sans", sans-serif; }
 
 /*
+ * Metric Styles
+ */
+.metrics {
+  width: 100%;
+  height: 50px;
+  cursor: pointer;
+}
+.metrics > div {
+  display: inline-block;
+  width: 33.33%;
+  text-align: center;
+  padding-top: 15px;
+}
+
+/*
  * List Styles
  */
 
-.stats-list {
+.plug-stats {
   background-color: rgba(28, 31, 37, 0.9);
   width: 300px;
   max-height: 525px;

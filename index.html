@@ -20,7 +20,7 @@
 
       var history = JSON.stringify(API.getHistory()[0]);
       API.getHistory().map(function(play){
-        app.ports.playSub.send(JSON.stringify(play));
+        app.ports.plugplay.send(JSON.stringify(play));
       });
     }
 
