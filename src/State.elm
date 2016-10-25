@@ -13,8 +13,7 @@ init =
         ( statsModel, statCmd ) =
             Stats.init
     in
-        ( { metric = Stats.Woot
-          , statsModel = statsModel
+        ( { statsModel = statsModel
           }
         , Cmd.map StatsMsg statCmd
         )
@@ -23,9 +22,6 @@ init =
 update : Msg -> Model -> ( Model, Cmd msg )
 update msg model =
     case msg of
-        Sort metric ->
-            ( { model | metric = metric }, Cmd.none )
-
         StatsMsg a ->
             let
                 ( newStatsModel, newStatsCmd ) =

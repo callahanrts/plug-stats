@@ -17,7 +17,6 @@ root model =
             , metricTab Stats.Meh
             , metricTab Stats.Grab
             ]
-        , div [] [ text (toString model.metric) ]
         , statsView model
         ]
 

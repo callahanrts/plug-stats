@@ -29,6 +29,7 @@ body{ font-family: "Open Sans", sans-serif; }
 }
 
 ol {
+  margin: 0;
   padding: 0 40px;
 }
 ol li {
