@@ -11,7 +11,7 @@ import Ports
 
 init : ( Model, Cmd Msg )
 init =
-    ( Model [] 0, Cmd.none )
+    ( Model [] Woot, Cmd.none )
 
 
 
@@ -21,6 +21,9 @@ init =
 update : Msg -> Model -> ( Model, Cmd msg )
 update msg model =
     case msg of
+        Sort by ->
+            ( { model | metric = by }, Cmd.none )
+
         AddPlay playStr ->
             case (decodeString playDecoder playStr) of
                 Ok value ->
@@ -28,10 +31,10 @@ update msg model =
                         ps =
                             value :: model.plays
                     in
-                        ( Model ps (List.length ps), Cmd.none )
+                        ( { model | plays = ps }, Cmd.none )
 
                 Err msg ->
-                    ( Model [] -1, Cmd.none )
+                    ( { model | plays = [] }, Cmd.none )
 
 
 

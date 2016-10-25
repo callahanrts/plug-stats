@@ -13,26 +13,27 @@ root : Model -> Html Msg
 root model =
     div [ class "plug-stats" ]
         [ div [ class "metrics" ]
-            [ metricTab Woot
-            , metricTab Meh
-            , metricTab Grab
+            [ metricTab Stats.Woot
+            , metricTab Stats.Meh
+            , metricTab Stats.Grab
             ]
         , div [] [ text (toString model.metric) ]
         , statsView model
         ]
 
 
-metricTab : Metric -> Html Msg
+metricTab : Stats.Metric -> Html Msg
 metricTab metric =
-    case metric of
-        Woot ->
-            div [ onClick (Sort Woot), class "woot" ] [ text "Woot" ]
+    Html.map StatsMsg <|
+        case metric of
+            Stats.Woot ->
+                div [ onClick (Stats.Sort Stats.Woot), class "woot" ] [ text "Woot" ]
 
-        Meh ->
-            div [ onClick (Sort Meh), class "meh" ] [ text "Meh" ]
+            Stats.Meh ->
+                div [ onClick (Stats.Sort Stats.Meh), class "meh" ] [ text "Meh" ]
 
-        Grab ->
-            div [ onClick (Sort Grab), class "grab" ] [ text "Grab" ]
+            Stats.Grab ->
+                div [ onClick (Stats.Sort Stats.Grab), class "grab" ] [ text "Grab" ]
 
 
 statsView : Model -> Html Msg

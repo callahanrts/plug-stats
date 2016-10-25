@@ -3,18 +3,12 @@ module Types exposing (..)
 import Stats.Types as Stats
 
 
-type Metric
-    = Woot
-    | Meh
-    | Grab
-
-
 type Msg
-    = Sort Metric
+    = Sort Stats.Metric
     | StatsMsg Stats.Msg
 
 
 type alias Model =
-    { metric : Metric
+    { metric : Stats.Metric
     , statsModel : Stats.Model
     }

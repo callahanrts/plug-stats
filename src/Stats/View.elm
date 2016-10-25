@@ -10,9 +10,21 @@ import Stats.Types exposing (..)
 root : Model -> Html Msg
 root model =
     div [ class "stats-list" ]
-        [ ol [] (List.map showPlay model.plays)
-        , div [] [ text (toString model.total) ]
+        [ ol [] (List.map showPlay (orderBy model.metric model.plays))
         ]
+
+
+orderBy : Metric -> List Play -> List Play
+orderBy metric plays =
+    case metric of
+        Woot ->
+            List.reverse (List.sortBy (\n -> n.score.positive) plays)
+
+        Meh ->
+            List.reverse (List.sortBy (\n -> n.score.negative) plays)
+
+        Grab ->
+            List.reverse (List.sortBy (\n -> n.score.grabs) plays)
 
 
 showPlay : Play -> Html Msg

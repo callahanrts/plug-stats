@@ -35,9 +35,16 @@ type alias Play =
 
 type alias Model =
     { plays : List Play
-    , total : Int
+    , metric : Metric
     }
+
+
+type Metric
+    = Woot
+    | Meh
+    | Grab
 
 
 type Msg
     = AddPlay String
+    | Sort Metric

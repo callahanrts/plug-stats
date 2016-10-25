@@ -13,7 +13,7 @@ init =
         ( statsModel, statCmd ) =
             Stats.init
     in
-        ( { metric = Woot
+        ( { metric = Stats.Woot
           , statsModel = statsModel
           }
         , Cmd.map StatsMsg statCmd
