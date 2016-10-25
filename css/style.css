@@ -2,19 +2,39 @@ html, body{ padding: 0; margin: 0; }
 body{ font-family: "Open Sans", sans-serif; }
 
 /*
+ * COLORS
+ * woot: #90ad2f
+ * meh: #c42e3b
+ * grab: #aa74ff
+ */
+
+/*
  * Metric Styles
  */
 .metrics {
   width: 100%;
-  height: 50px;
   cursor: pointer;
+  padding: 10px;
 }
 .metrics > div {
   display: inline-block;
-  width: 33.33%;
-  text-align: center;
-  padding-top: 15px;
+  width: calc(33.33% - (20px / 3) - 2px);
+  padding: 10px 0;
+  margin: 0 1px;
+  background: #282c35;
 }
+.metrics .woot {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.metrics .grab {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.metrics .active.woot { background-color: #90ad2f; }
+.metrics .active.meh { background-color: #c42e3b; }
+.metrics .active.grab { background-color: #aa74ff; }
+.metrics > div .icon { margin-left: 7px; }
 
 /*
  * List Styles
@@ -69,15 +89,11 @@ ol li {
   margin-right: 15px;
 }
 
-.icon-grab {
-    background-position: -140px -285px
-}
+.icon-grab         { background-position: -140px -285px }
+.active .icon-grab { background-position: -35px -285px }
 
-.icon-meh {
-    background-position: -175px -285px
-}
+.icon-meh          { background-position: -175px -285px }
+.active .icon-meh  { background-position: -70px -285px }
 
-.icon-woot {
-    background-position: -210px -285px
-}
-
+.icon-woot         { background-position: -210px -285px }
+.active .icon-woot { background-position: -105px -285px }

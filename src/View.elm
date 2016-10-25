@@ -7,32 +7,60 @@ import Html.Events exposing (..)
 import Types exposing (..)
 import Stats.Types as Stats
 import Stats.View as Stats
+import String
 
 
 root : Model -> Html Msg
 root model =
     div [ class "plug-stats" ]
         [ div [ class "metrics" ]
-            [ metricTab Stats.Woot
-            , metricTab Stats.Meh
-            , metricTab Stats.Grab
+            [ metricTab Stats.Woot model.statsModel.metric
+            , metricTab Stats.Meh model.statsModel.metric
+            , metricTab Stats.Grab model.statsModel.metric
             ]
         , statsView model
         ]
 
 
-metricTab : Stats.Metric -> Html Msg
-metricTab metric =
-    Html.map StatsMsg <|
+metricTab : Stats.Metric -> Stats.Metric -> Html Msg
+metricTab metric current =
+    let
+        active =
+            metric == current
+    in
         case metric of
             Stats.Woot ->
-                div [ onClick (Stats.Sort Stats.Woot), class "woot" ] [ text "Woot" ]
+                tabMarkup Stats.Woot active
 
             Stats.Meh ->
-                div [ onClick (Stats.Sort Stats.Meh), class "meh" ] [ text "Meh" ]
+                tabMarkup Stats.Meh active
 
             Stats.Grab ->
-                div [ onClick (Stats.Sort Stats.Grab), class "grab" ] [ text "Grab" ]
+                tabMarkup Stats.Grab active
+
+
+tabMarkup : Stats.Metric -> Bool -> Html Msg
+tabMarkup metric active =
+    Html.map StatsMsg <|
+        let
+            metricStr =
+                toString metric
+
+            metricClass =
+                String.toLower metricStr
+        in
+            div [ onClick (Stats.Sort metric), class ((activeClass active) ++ " " ++ metricClass) ]
+                [ div [ class ("icon icon-" ++ metricClass) ] []
+                , span [] [ text metricStr ]
+                ]
+
+
+activeClass : Bool -> String
+activeClass active =
+    if active then
+        "active"
+    else
+        ""
 
 
 statsView : Model -> Html Msg
