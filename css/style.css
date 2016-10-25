@@ -12,13 +12,13 @@ body{ font-family: "Open Sans", sans-serif; }
  * Metric Styles
  */
 .metrics {
-  width: 100%;
+  width: calc(100% - 20px);
   cursor: pointer;
   padding: 10px;
 }
 .metrics > div {
   display: inline-block;
-  width: calc(33.33% - (20px / 3) - 2px);
+  width: calc(33.33% - 2px);
   padding: 10px 0;
   margin: 0 1px;
   background: #282c35;
