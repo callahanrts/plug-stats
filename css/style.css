@@ -15,13 +15,21 @@ body{ font-family: "Open Sans", sans-serif; }
   width: calc(100% - 20px);
   cursor: pointer;
   padding: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #0A0A0A;
 }
 .metrics > div {
   display: inline-block;
   width: calc(33.33% - 2px);
-  padding: 10px 0;
+  padding: 5px 0;
   margin: 0 1px;
   background: #282c35;
+  text-align: center;
+}
+.metrics > div span {
+  padding-right: 20px;
 }
 .metrics .woot {
   border-top-left-radius: 5px;
@@ -39,17 +47,23 @@ body{ font-family: "Open Sans", sans-serif; }
 /*
  * List Styles
  */
+.stats-list {
+  overflow: scroll;
+}
+.stats-list::-webkit-scrollbar {
+    display: none;
+}
+html, body, #main, .plug-stats, .stats-list{ height: 100%; }
 
 .plug-stats {
-  background-color: rgba(28, 31, 37, 0.9);
-  width: 300px;
-  max-height: 525px;
-  overflow: scroll;
+  background-color: #0A0A0A;
+  width: 100%;
   color: #fff;
+  height: 100%;
 }
 
 ol {
-  margin: 0;
+  margin: 55px 0 0 0;
   padding: 0 40px;
 }
 ol li {

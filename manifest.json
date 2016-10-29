@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+
+  "name": "Plug Stats",
+  "description": "This extension adds a stats panel for recent plays in plug.dj",
+  "version": "1.0",
+
+  "content_scripts": [{
+    "matches": ["*://plug.dj/*"],
+    "js": ["injector.js"],
+    "css":["css/plug.css"],
+    "exclude_matches": [
+      "*://plug.dj/about",
+      "*://plug.dj/terms",
+      "*://plug.dj/privacy"
+    ]
+  }],
+  "permissions": [
+  ],
+  "web_accessible_resources": [
+    "css/*.css",
+    "*.js",
+    "*.html"
+  ]
+}

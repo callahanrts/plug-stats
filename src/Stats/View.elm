@@ -5,6 +5,7 @@ import Html.App as App
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Stats.Types exposing (..)
+import String
 
 
 root : Model -> Html Msg
@@ -30,7 +31,8 @@ orderBy metric plays =
 showPlay : Play -> Html Msg
 showPlay play =
     li []
-        [ div [ class "title" ] [ text play.media.title ]
+        [ [ div [ class "title" ] [ text play.media.title ]
+          ]
         , div [ class "author" ] [ text play.media.author ]
         , (playStat play)
         ]
@@ -56,3 +58,13 @@ plugIcon icon =
 playMetric : Int -> Int -> String
 playMetric num total =
     toString num
+
+
+
+-- trackLink : Media -> String
+-- trackLink media =
+--     case String.toInt media.cid of
+--         Ok val ->
+--             "http://google.com"
+--         Err msg ->
+--             "http://youtube.com/watch?v=" ++ media.cid

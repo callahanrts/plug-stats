@@ -1,0 +1,33 @@
+
+#stats-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  padding: 17px 0 0 2px;
+  border-right: #0A0A0A 1px solid;
+}
+#chat-button {
+  left: 60px!important;
+  width: 60px !important;
+}
+
+#users-button {
+  left: 120px !important;
+  width: 80px !important;
+}
+#waitlist-button {
+  left: 200px !important;
+  width: 85px !important;
+}
+
+#stats {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  overflow: hidden;
+  display: none;
+}

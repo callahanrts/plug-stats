@@ -65,7 +65,5 @@ activeClass active =
 
 statsView : Model -> Html Msg
 statsView model =
-    div []
-        [ Html.map StatsMsg <|
-            Stats.root model.statsModel
-        ]
+    Html.map StatsMsg <|
+        Stats.root model.statsModel
