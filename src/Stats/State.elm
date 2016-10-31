@@ -11,7 +11,27 @@ import Ports
 
 init : ( Model, Cmd Msg )
 init =
-    ( Model [] Woot, Cmd.none )
+    ( Model [] Woot False emptyPlay, Cmd.none )
+
+
+emptyPlay : Play
+emptyPlay =
+    Play emptyScore emptyUser emptyMedia
+
+
+emptyScore : Score
+emptyScore =
+    Score 0 0 0 0
+
+
+emptyUser : User
+emptyUser =
+    User 0 ""
+
+
+emptyMedia : Media
+emptyMedia =
+    Media "" "" 0 0 "" "" ""
 
 
 
@@ -35,6 +55,12 @@ update msg model =
 
                 Err msg ->
                     ( { model | plays = [] }, Cmd.none )
+
+        Preview play ->
+            ( { model | currentPlay = play, previewPlay = True }, Cmd.none )
+
+        ClosePreview ->
+            ( { model | currentPlay = emptyPlay, previewPlay = False }, Cmd.none )
 
 
 

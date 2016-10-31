@@ -1,6 +1,5 @@
 html, body{ padding: 0; margin: 0; }
 body{ font-family: "Open Sans", sans-serif; }
-
 /*
  * COLORS
  * woot: #90ad2f
@@ -74,6 +73,7 @@ ol li {
  * Title Styles
  */
 .title {
+  cursor: pointer;
 }
 .author {
   font-size: 0.8em;
@@ -111,3 +111,53 @@ ol li {
 
 .icon-woot         { background-position: -210px -285px }
 .active .icon-woot { background-position: -105px -285px }
+
+
+/*
+ * Preview
+ */
+
+#preview {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #0A0A0A;
+  color: #fff;
+}
+
+.close-preview {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid #333;
+  text-align: center;
+  cursor: pointer;
+}
+.close-preview > div {
+  padding-top: 17px;
+}
+
+/* Responsive Embedding */
+.embed-container {
+  margin: 10px 20px;
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}

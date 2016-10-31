@@ -36,6 +36,8 @@ type alias Play =
 type alias Model =
     { plays : List Play
     , metric : Metric
+    , previewPlay : Bool
+    , currentPlay : Play
     }
 
 
@@ -48,3 +50,5 @@ type Metric
 type Msg
     = AddPlay String
     | Sort Metric
+    | Preview Play
+    | ClosePreview
