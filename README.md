@@ -1,17 +1,7 @@
-For Architecture help
-- https://github.com/krisajenkins/beeline-demo/blob/master/src/State.elm
-- There's another link somewhere by this guy
-  - http://blog.jenkster.com/2016/04/how-i-structure-elm-apps.html
+# Plug Stats
 
+Plug Stats adds a panel to https://plug.dj that will display general statistics for the past 50
+tracks played as well as every track played afterwards. Sort recent plays on [Plug.dj](http://plug.dj)
+by woot, meh, and grab and preview each one before deciding what to add to your playlist.
 
-Get Playlists
-
-GET `/_/playlists`
-
-Add to Playlist
-
-POST `/_/playlists/{{pid}}/media/insert`
-  {
-    media: {{media object}}
-    append: true
-  }
+![Plug Stats order tracks by the most woots, mehs, or grabs](./screenshots/1477675062.png?raw=true "Plug Stats order tracks by the most woots, mehs, or grabs")
