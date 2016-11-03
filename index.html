@@ -22,6 +22,14 @@
       API.getHistory().map(function(play){
         app.ports.plugplay.send(JSON.stringify(play));
       });
+
+      app.ports.setvolume.subscribe(function(vol){
+        console.log("SUBSCRIBE Volume: ", vol);
+      })
+
+      app.ports.output.subscribe(function () {
+          console.log("sub: ", arguments)
+      });
     }
 
   </script>

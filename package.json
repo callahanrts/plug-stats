@@ -2,6 +2,6 @@
   "name": "plug-stats",
   "version": "1.0.0",
   "scripts": {
-    "watch": "chokidar 'src/**/*.elm' -c 'elm-make src/Main.elm --output plug-stats.js' --initial"
+    "watch": "chokidar 'src/**/*.elm' -c 'elm-make src/Main.elm --output extension/plug-stats.js' --initial"
   }
 }

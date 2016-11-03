@@ -3,8 +3,8 @@ module State exposing (..)
 import Types exposing (..)
 import Stats.State as Stats
 import Stats.Types as Stats
-import Ports
 import Debug
+import Ports
 
 
 init : ( Model, Cmd Msg )
@@ -19,7 +19,7 @@ init =
         )
 
 
-update : Msg -> Model -> ( Model, Cmd msg )
+update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         StatsMsg a ->
@@ -28,7 +28,7 @@ update msg model =
                     Stats.update a model.statsModel
             in
                 ( { model | statsModel = newStatsModel }
-                , Cmd.none
+                , Cmd.map StatsMsg newStatsCmd
                 )
 
 

@@ -38,7 +38,7 @@ emptyMedia =
 -- UPDATE
 
 
-update : Msg -> Model -> ( Model, Cmd msg )
+update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         Sort by ->
@@ -57,10 +57,20 @@ update msg model =
                     ( { model | plays = [] }, Cmd.none )
 
         Preview play ->
-            ( { model | currentPlay = play, previewPlay = True }, Cmd.none )
+            ( { model
+                | currentPlay = play
+                , previewPlay = True
+              }
+            , Ports.setvolume 0
+            )
 
         ClosePreview ->
-            ( { model | currentPlay = emptyPlay, previewPlay = False }, Cmd.none )
+            ( { model
+                | currentPlay = emptyPlay
+                , previewPlay = False
+              }
+            , Ports.setvolume 100
+            )
 
 
 

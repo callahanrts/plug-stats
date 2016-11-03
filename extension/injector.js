@@ -96,6 +96,10 @@ var loadIframe = function(){
 
         window.addEventListener("message", receiveMessage, false);
 
+        app.ports.setvolume.subscribe(function(vol){
+          parent.postMessage({event: 'volume', volume: vol}, parent.location.origin);
+        });
+
       </script>
 
     </html>

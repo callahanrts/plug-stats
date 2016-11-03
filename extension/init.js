@@ -43,8 +43,18 @@ waitForSelector("#header-panel-bar", function(panel){
 })
 
 
+var receiveMessage = function(){
+  var message = event.data;
+  switch(message.event){
+    case "volume":
+      API.setVolume(message.volume);
+      break;
+  }
+};
 
 waitForAPI(function(API){
+  window.addEventListener("message", receiveMessage, false);
+
   waitForSelector("#plug-stats", function(frame){
 
     setTimeout(function(){
